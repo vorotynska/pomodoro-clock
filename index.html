@@ -50,13 +50,18 @@
             </div>
             <div class="card-body">
               <h5 class="card-title" id="timer-label">Session</h5>
-              <p class="card-text" id="time-left">25:00</p>
-              <button class="btn btn-primary" id="start_stop">play</button>
+              <p class="card-text" id="time-left">
+                <span id="js-minutes">25</span>
+                <span class="separator">:</span>
+                <span id="js-seconds">00</span>
+              </p>
+              <button class="btn btn-primary" id="start_stop" data-action="start">play</button>
               <button class="btn btn-primary" id="reset" data-action="reset">reset</button>
+
             </div>
-            <div class="card-footer hidden" id="beep">
-              <audio src="" data-sound="pomodoro"></audio>
-              <audio src="" data-sound="shortBreak"></audio>
+            <div class="card-footer hidden" >
+              <audio id="beep" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" data-sound="pomodoro"></audio>
+              <audio id="" src="" data-sound="shortBreak"></audio>
             </div>
           </div>
     </div>
