@@ -4,6 +4,7 @@ const demo = document.querySelector("#session-length")
 
 const mainButton = document.getElementById('start_stop')
 
+
 keys.forEach((btn) => {
     btn.addEventListener('click', e => {
         const key = e.target;
@@ -17,8 +18,8 @@ keys.forEach((btn) => {
                     result = 60;
                 }
                 output.innerText = result;
+                let wor = Number(output.innerText);
 
-                console.log(output.innerText)
             }
             if (action === 'break-decrement') {
                 result = Number(output.innerText) - 1;
@@ -26,7 +27,7 @@ keys.forEach((btn) => {
                     result = 1
                 }
                 output.innerText = result;
-
+                let wor = Number(output.innerText);
             }
             if (action === 'session-increment') {
                 let result1 = Number(demo.innerText) + 1;
@@ -43,13 +44,15 @@ keys.forEach((btn) => {
                 }
                 demo.innerText = result1;
 
+
             }
             if (action === 'reset') {
                 result = 5;
                 result1 = 25;
                 demo.innerText = result1;
                 output.innerText = result;
-                switchMode('pomodoro')
+                switchMode('pomodoro');
+
             }
             if (action === 'start') {
                 startTimer();
@@ -62,10 +65,11 @@ keys.forEach((btn) => {
 
 })
 const timer = {
-    pomodoro: 25,
+    pomodoro: 1,
     break: 5
 };
 let interval;
+let wor;
 
 
 
@@ -99,7 +103,7 @@ function startTimer() {
         updateClock();
 
         total = timer.remainingTime.total;
-        if (total <= 0) {
+        if (total < 0) {
             clearInterval(interval);
 
             switch (timer.mode) {
